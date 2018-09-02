@@ -43,8 +43,8 @@ maven-test:
  #- echo `pwd`
  
  - chmod +x install-chrome.sh
- - ./install-chrome.sh
- - mvn test -s settings.xml
+ #- ./install-chrome.sh
+ #- mvn test -s settings.xml
  
  
 
