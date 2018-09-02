@@ -1,0 +1,53 @@
+cache:
+ paths:
+  - ./.m2/repository
+  - .m2/
+  - target/
+  - /root/.m2
+
+
+stages:
+ - build
+ - test
+
+variables:
+ GIT_SSL_NO_VERIFY: "true"
+
+
+#cache:
+# paths:
+#  - target/
+
+
+# maven-build:
+#  stage: build
+#  image: maven:3-jdk-8
+#  script: "mvn install -s settings.xml"
+#  mvn test -X -s settings.xml
+#  artifacts:
+#   paths:
+#   - target/*.jar
+#   expire_in: 10 minutes
+
+maven-test:
+ stage: test
+ image: markhobson/maven-chrome
+ script:
+ #- rm -f chromedriver
+ #- curl -fOk https://gitlab.corp.amdocs.com/autotoolbox-community/data/raw/master/chromedriver_linux64.zip
+ #- unzip chromedriver_linux64.zip
+ #- mv chromedriver /usr/bin/chromedriver
+ #- chown root:root /usr/bin/chromedriver
+ #- chmod +x /usr/bin/chromedriver
+ #- echo $PATH
+ #- echo `pwd`
+ 
+ - chmod +x install-chrome.sh
+ - ./install-chrome.sh
+ - mvn test -s settings.xml
+ 
+ 
+
+ 
+
+

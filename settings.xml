@@ -1,0 +1,12 @@
+<settings>  
+	<proxies>      
+		<proxy>      
+		<id>proxy</id>      
+		<active>true</active>      
+		<protocol>http</protocol>      
+		<host>genproxy.corp.amdocs.com</host>      
+		<port>8080</port>      
+		<nonProxyHosts>maven</nonProxyHosts>
+		</proxy>  
+	</proxies>
+</settings>
